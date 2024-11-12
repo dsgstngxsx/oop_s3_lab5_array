@@ -13,12 +13,12 @@ private:
 	void increase()
 	{
 		capacity++;
-		T* newArr = new T[capacity]; // Создаем новый массив с увеличенной вместительностью
+		T* newArr = new T[capacity]; 
 		for (int i = 0; i < size; i++) {
-			newArr[i] = arr[i]; // Копируем старые элементы
+			newArr[i] = arr[i]; 
 		}
-		delete[] arr; // Удаляем старый массив
-		arr = newArr; // Обновляем указатель на массив
+		delete[] arr; //удаляем старый массив
+		arr = newArr; //обновляем указатель на массив
 	}
 public:
 	arrays(int initialCapacity = 1) : size(0), capacity(initialCapacity)
@@ -31,12 +31,12 @@ public:
 	}
 	void add(T element)
 	{
-		if (size >= capacity) // Если размер массива больше или равен вместительности
+		if (size >= capacity) //если размер массива больше или равен вместительности
 		{
-			increase(); // Увеличиваем вместительность
+			increase(); //увеличиваем вместительность
 		}
-		arr[size] = element; // Добавляем новый элемент в конец массива
-		size++; // Увеличиваем текущий размер
+		arr[size] = element; //добавляем новый элемент в конец массива
+		size++; // увеличиваем текущий размер
 	}
 	void enter(int n)
 	{
@@ -47,16 +47,16 @@ public:
 				cout << "The amount of the elements must be > 0" << std::endl;
 				cout << "How many elements: ";
 				cin >> n;
-				if (n > 0) break; // Проверяем ввод
+				if (n > 0) break; 
 			}
 		}
 
 		for (int i = 0; i < n; i++)
 		{
-			T value; // Изменено на T для поддержки различных типов
+			T value; 
 			cout << "Enter the element " << (i + 1) << ": ";
 			cin >> value;
-			add(value); // Добавляем элемент
+			add(value); // добавляем элемент
 		}
 	}
 	void new_elemenets()
@@ -151,7 +151,7 @@ void line()
 }
 int main() {
 
-	arrays<string> myArray; //создаем новый массив 
+	arrays<float> myArray; //создаем новый массив 
 	int n; //кол-во элементов
 
 	cout << "how many elements: ";
@@ -159,27 +159,27 @@ int main() {
 
 	myArray.enter(n); //вводим элементы
 
-	cout << "\n" << "array: ";
+	cout << "\narray: ";
 	myArray.print(); //вывод массива на экран
 
 	line();
 
-	arrays<string> arr2 = myArray.copy(); //создаем массив2, который будет являться копией первого
+	arrays<float> arr2 = myArray.copy(); //создаем массив2, который будет являться копией первого
 
-	cout << "\n" << "copy of array: ";
+	cout << "\ncopy of array: ";
 
 	arr2.print(); //вывод копии на экран
 
 	line();
-	cout << "\n";
+	cout << endl;
 
 	myArray.new_elemenets(); //в первый массив добавляем новые элементы в конец
-	cout << "\n" << "final array: ";
+	cout << "\nfinal array: ";
 
 	myArray.print(); //вывод обновленного массива
 
 	line();
-	cout << "\n";
+	cout << endl;
 
 	myArray.double_arr(arr2); //вставка копии в обновленный массив
 
@@ -189,6 +189,6 @@ int main() {
 
 	line();
 	 //поиск макс. элемента в большом массиве
-	cout << "\n" << "the max element is : " << myArray.maxim() << endl; //вывод макс.элемента
+	cout << "\nthe max element is : " << myArray.maxim() << endl; //вывод макс.элемента
 	return 0;
 }
